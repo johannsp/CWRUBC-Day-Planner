@@ -68,7 +68,10 @@ $(document).ready(function() {
     var note=row.find(".planner-note");
     plannerGrid["hr"+i].note = note.val();
     savePlannerGrid();
-    note.removeClass("noteUnsaved");
+    // Delay removing noteUnsaved class so change event will have finished.
+    setTimeout(function() {
+      note.removeClass("noteUnsaved");
+    }, 500);
   });
 
   loadPlannerGrid();
