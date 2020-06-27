@@ -15,7 +15,6 @@ $(document).ready(function() {
   }
 
   function savePlannerGrid() {
-    alert("Inside savePlannerGrid()");
     if (plannerGrid) {
       localStorage.setItem("dayPlanner_PlannerGrid",JSON.stringify(plannerGrid));
     }
@@ -24,7 +23,6 @@ $(document).ready(function() {
   function renderSchedule() {
     var currentDate = moment().format("dddd, MMMM Do");
     var currentHour = moment().format("k");
-    //var currentHour = 11; alert("currentHour="+currentHour);
     $("#currentDay").append(currentDate);
     var updClass = "";
     for (var i = 9; i <= 17; i++) {
@@ -45,7 +43,6 @@ $(document).ready(function() {
       }
       hiCol.addClass(updClass);
       oldClass = updClass;
-      alert(`renderTime plannerGrid["hr"+i].note=`+plannerGrid["hr"+i].note);
       row.find(".planner-note").val(plannerGrid["hr"+i].note);
     }
   }
@@ -63,7 +60,6 @@ $(document).ready(function() {
 
   $(".planner-row").on("change",".planner-note",function() {
     $(this).addClass("noteUnsaved");
-    alert("$(this).val()="+$(this).val());
   });
 
   $(".planner-row").on("click",".saveBtn",function() {
