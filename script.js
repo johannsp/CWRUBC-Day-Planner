@@ -23,7 +23,7 @@ $(document).ready(function() {
   function renderSchedule() {
     var currentDate = moment().format("dddd, MMMM Do");
     var currentHour = moment().format("k");
-    $("#currentDay").append(currentDate);
+    $("#currentDay").text(currentDate);
     var updClass = "";
     for (var i = 9; i <= 17; i++) {
       var oldClass = plannerGrid["hr"+i].timeHiClass;
